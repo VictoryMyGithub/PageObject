@@ -11,11 +11,36 @@ import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage {
 
-    private final By productContainerLocator = By.xpath("//div[@class='col']");
+    private final By productContainerLocator = By.xpath("//div[@class='product-thumb']");
+    private final By brandsButton = By.xpath("//a[text()='Brands']");
+    private By loginButton = By.xpath("//ul/li/a[text()='Login']");
+    private By myAccountButton = By.xpath("//div/a//span[text()='My Account']");
+    private By registerButton = By.xpath("//ul/li/a[text()='Register']");
 
-    public SignInPage clickOnSignInLink() {
-        find(signLinkLocator).click();
-        return new SignInPage();
+    public MainPage openMyAccount() {
+        find(myAccountButton).click();
+        return this;
+    }
+
+    public RegisterAccountPage selectRegisterOption() {
+        find(registerButton).click();
+        return new RegisterAccountPage();
+    }
+
+    public MainPage selectDesktops() {
+        find(desktopButton).click();
+        return this;
+    }
+
+    public DesktopPage selectAllDesktop() {
+        find(desktopShowAllDesktopButton).click();
+        return new DesktopPage();
+    }
+//button in the footer
+
+    public ManufacturerPage productContainerLocator() {
+        find(brandsButton).click();
+        return new ManufacturerPage();
     }
 
 
